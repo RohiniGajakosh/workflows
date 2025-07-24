@@ -20,5 +20,26 @@ jobs:
       - name: Random fun message
         run: echo "Today is a great day to automate stuff! 🎉"
 
+  check-environment:
+    needs: say-hello
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show system info
+        run: uname -a
+      - name: Check disk space
+        run: df -h
+      - name: Print environment variables
+        run: env
+
+  get-weather:
+    needs: say-hello
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch weather for Bengaluru
+        run: |
+          curl "https://api.open-meteo.com/v1/forecast?latitude=12.9716&longitude=77.5946&current_weather=true" -o weather.json
+          cat weather.json
+
+
 
 
