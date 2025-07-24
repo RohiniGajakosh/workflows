@@ -40,6 +40,28 @@ jobs:
           curl "https://api.open-meteo.com/v1/forecast?latitude=12.9716&longitude=77.5946&current_weather=true" -o weather.json
           cat weather.json
 
+  branded-shoes:
+    needs: get-weather
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Nike shoes
+        run: |
+          echo "Fetching top Nike shoes..."
+          curl "https://shoe-catalogue-api-codex.herokuapp.com/api/shoes/brand/Nike" -o nike.json
+          cat nike.json
+
+      - name: Fetch Adidas shoes
+        run: |
+          echo "Fetching top Adidas shoes..."
+          curl "https://shoe-catalogue-api-codex.herokuapp.com/api/shoes/brand/Adidas" -o adidas.json
+          cat adidas.json
+
+      - name: Fetch Puma shoes
+        run: |
+          echo "Fetching top Puma shoes..."
+          curl "https://shoe-catalogue-api-codex.herokuapp.com/api/shoes/brand/Puma" -o puma.json
+          cat puma.json
+        
 
 
 
