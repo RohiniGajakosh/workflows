@@ -22,3 +22,24 @@ jobs:
 
 
 
+name: workflow
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Say hello
+        run: |
+          echo "Hello world!"
+          echo "This is GitHub Actions doing its thing 🤖"
+      - name: Print current date and time
+        run: date
+      - name: List files in repo
+        run: ls -l
+      - name: Random fun message
+        run: echo "Today is a great day to automate stuff! 🎉"
