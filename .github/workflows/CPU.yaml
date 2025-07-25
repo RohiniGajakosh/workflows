@@ -1,0 +1,27 @@
+name: Android Diagnostics
+
+on:
+  workflow_dispatch:
+
+jobs:
+  monitor-device:
+    runs-on: self-hosted
+
+    steps:
+      - name: Ping the device
+        run: |
+          ping -c 4 192.168.140.81
+
+      - name: Connect via ADB
+        run: |
+          adb connect 192.168.140.81
+          adb devices
+
+      - name: Run diagnostics over ADB
+        run: |
+          adb shell <<EOF
+          su
+          ps -ef | grep fasta
+          cat /proc/stat
+          logcat | grep Cpu
+          EOF
