@@ -1,4 +1,4 @@
-name: Android Diagnostics
+name: CPU Load
 
 on:
   workflow_dispatch:
