@@ -5,7 +5,7 @@ on:
 
 jobs:
   monitor-device:
-    runs-on: self-hosted
+    runs-on: ubntu-latest
 
     steps:
       - name: Ping the device
