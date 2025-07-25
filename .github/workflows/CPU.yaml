@@ -1,6 +1,10 @@
-name: CPU Load
-
+name: CPU 
 on:
+  push:
+    branches:
+      - newbranch_pull
+      - main
+
   workflow_dispatch:
 
 jobs:
