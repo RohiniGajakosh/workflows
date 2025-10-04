@@ -1,0 +1,11 @@
+name: my workflow 
+
+on: push
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+        - name: welcome message
+          run: echo "welcome to github actions"
+        - name: Readfile
+          run: cat Readme.md
